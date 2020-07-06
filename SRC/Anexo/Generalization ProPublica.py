@@ -15,31 +15,31 @@ np.random.seed(1234)
 """
 PRECISIÓN Y ERRORES DE GENERALIZACION, ENTRENAMIENTO Y VALIDACION
 """
-X_train = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\X_train.npy")
-X_val = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\X_val.npy")
-X_test = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\X_test.npy")
+X_train = np.load(r"SRC/Anexo/Arreglos ProPublica/X_train.npy")
+X_val = np.load(r"SRC/Anexo/Arreglos ProPublica/X_val.npy")
+X_test = np.load(r"SRC/Anexo/Arreglos ProPublica/X_test.npy")
 
-X_train_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\X_train_v.npy")
-X_val_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\X_val_v.npy")
-X_test_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\X_test_v.npy")
+X_train_v = np.load(r"SRC/Anexo/Arreglos ProPublica/X_train_v.npy")
+X_val_v = np.load(r"SRC/Anexo/Arreglos ProPublica/X_val_v.npy")
+X_test_v = np.load(r"SRC/Anexo/Arreglos ProPublica/X_test_v.npy")
 
 
 
-y_train = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\y_train.npy")
-y_train_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\y_train_v.npy")
-y_val = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\y_val.npy")
-y_val_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\y_val_v.npy")
-y_test = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\y_test.npy")
-y_test_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\y_test_v.npy")
+y_train = np.load(r"SRC/Anexo/Arreglos ProPublica/y_train.npy")
+y_train_v = np.load(r"SRC/Anexo/Arreglos ProPublica/y_train_v.npy")
+y_val = np.load(r"SRC/Anexo/Arreglos ProPublica/y_val.npy")
+y_val_v = np.load(r"SRC/Anexo/Arreglos ProPublica/y_val_v.npy")
+y_test = np.load(r"SRC/Anexo/Arreglos ProPublica/y_test.npy")
+y_test_v = np.load(r"SRC/Anexo/Arreglos ProPublica/y_test_v.npy")
 
-coefs_freq = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\coefs_freq.npy")
-coefs_freq_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\coefs_freq_v.npy")
+coefs_freq = np.load(r"SRC/Anexo/Arreglos ProPublica/coefs_freq.npy")
+coefs_freq_v = np.load(r"SRC/Anexo/Arreglos ProPublica/coefs_freq_v.npy")
 
-coefs_opt = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\perf_nbww.npy")
-coefs_opt_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\perf_nbww_v.npy")
+coefs_opt = np.load(r"SRC/Anexo/Arreglos ProPublica/perf_nbww.npy")
+coefs_opt_v = np.load(r"SRC/Anexo/Arreglos ProPublica/perf_nbww_v.npy")
 
-coefs_bay = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\perf_mean_bay.npy")
-coefs_bay_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Anexo\perf_mean_bay_v.npy")
+coefs_bay = np.load(r"SRC/Anexo/Arreglos ProPublica/perf_mean_bay.npy")
+coefs_bay_v = np.load(r"SRC/Anexo/Arreglos ProPublica/perf_mean_bay_v.npy")
 
 training_errors, validation_errors, test_errors = np.zeros((3,2,2)), np.zeros((3,2,2)), np.zeros((3,2,2))
 
