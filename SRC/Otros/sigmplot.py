@@ -50,7 +50,7 @@ ax.set_ylabel('p', labelpad = 150, fontsize=14)
 
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Otros",
                                          "Sigmoide_"+str(w)+"_"+str(b)+".png")
 
 canvas.print_figure(fname, format="png")
