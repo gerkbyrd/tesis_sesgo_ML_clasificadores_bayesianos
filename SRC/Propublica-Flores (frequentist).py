@@ -32,7 +32,7 @@ I.- CARGADO, PREPROCESADO Y VISUALIZACION DE LOS DATOS
 """
 
 #importar datos
-raw_data = pd.read_csv(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Arts\Bias\ProPublica COMPAS\compas-analysis-master\compas-analysis-master\compas-scores-two-years.csv")
+raw_data = pd.read_csv(r"SRC/compas-scores-two-years.csv")
 cats = raw_data.columns
 
 """
@@ -256,7 +256,7 @@ sado de los datos es igual al realizado en el punto I.
 """
 
 #importar datos
-raw_data_violent = pd.read_csv(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Arts\Bias\ProPublica COMPAS\compas-analysis-master\compas-analysis-master\compas-scores-two-years-violent.csv")
+raw_data_violent = pd.read_csv(r"SRC/compas-scores-two-years-violent.csv")
 cats_violent = np.array(raw_data_violent.columns)
 
 #Preprocesamiento paso a paso:
@@ -593,7 +593,7 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig1.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
@@ -790,70 +790,29 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig2.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
 
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig2_nf.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
-"""
-RESULTADOS DE REGRESION BAYESIANA Y POR OPTIMIZADOR
-"""
 
-coeffs_bay_bw1 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\meanbay_coefs1.npy")
-coeffs_opt_bw1 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\opt_coefs1.npy")
 
-coeffs_bay_bw2 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\meanbay_coefs2.npy")
-coeffs_opt_bw2 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\opt_coefs2.npy")
 
-coeffs_bay_bw3 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\meanbay_coefs3.npy")
-coeffs_opt_bw3 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\opt_coefs3.npy")
 
-coeffs_bay_bw4 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\meanbay_coefs4.npy")
-coeffs_opt_bw4 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\opt_coefs4.npy")
 
-OR_black_bay_bw1 = GetOddsRatio(coeffs_bay_bw1[0], coeffs_bay_bw1[3])
-OR_female_bay_bw1 = GetOddsRatio(coeffs_bay_bw1[0], coeffs_bay_bw1[1])
-OR_age_bay_bw1 = GetOddsRatio(coeffs_bay_bw1[0], coeffs_bay_bw1[2])
 
-OR_female_bay_bw2 = GetOddsRatio(coeffs_bay_bw2[0], coeffs_bay_bw2[1])
-OR_age_bay_bw2 = GetOddsRatio(coeffs_bay_bw2[0], coeffs_bay_bw2[2])
-OR_DEC_bay_bw2 = GetOddsRatio(coeffs_bay_bw2[0], coeffs_bay_bw2[3])
 
-OR_black_bay_bw3 = GetOddsRatio(coeffs_bay_bw3[0], coeffs_bay_bw3[3])
-OR_female_bay_bw3 = GetOddsRatio(coeffs_bay_bw3[0], coeffs_bay_bw3[1])
-OR_age_bay_bw3 = GetOddsRatio(coeffs_bay_bw3[0], coeffs_bay_bw3[2])
-OR_DEC_bay_bw3 = GetOddsRatio(coeffs_bay_bw3[0], coeffs_bay_bw3[4])
 
-OR_black_bay_bw4 = GetOddsRatio(coeffs_bay_bw4[0], coeffs_bay_bw4[3])
-OR_female_bay_bw4 = GetOddsRatio(coeffs_bay_bw4[0], coeffs_bay_bw4[1])
-OR_age_bay_bw4 = GetOddsRatio(coeffs_bay_bw4[0], coeffs_bay_bw4[2])
-OR_DEC_bay_bw4 = GetOddsRatio(coeffs_bay_bw4[0], coeffs_bay_bw4[4])
-OR_blackXdec_bay_bw4 = GetOddsRatio(coeffs_bay_bw4[0], coeffs_bay_bw4[5])
 
 
-OR_black_opt_bw1 = GetOddsRatio(coeffs_bay_bw1[0], coeffs_bay_bw1[3])
-OR_female_opt_bw1 = GetOddsRatio(coeffs_bay_bw1[0], coeffs_bay_bw1[1])
-OR_age_opt_bw1 = GetOddsRatio(coeffs_bay_bw1[0], coeffs_bay_bw1[2])
 
-OR_female_opt_bw2 = GetOddsRatio(coeffs_opt_bw2[0], coeffs_opt_bw2[1])
-OR_age_opt_bw2 = GetOddsRatio(coeffs_opt_bw2[0], coeffs_opt_bw2[2])
-OR_DEC_opt_bw2 = GetOddsRatio(coeffs_opt_bw2[0], coeffs_opt_bw2[3])
 
-OR_black_opt_bw3 = GetOddsRatio(coeffs_opt_bw3[0], coeffs_opt_bw3[3])
-OR_female_opt_bw3 = GetOddsRatio(coeffs_opt_bw3[0], coeffs_opt_bw3[1])
-OR_age_opt_bw3 = GetOddsRatio(coeffs_opt_bw3[0], coeffs_opt_bw3[2])
-OR_DEC_opt_bw3 = GetOddsRatio(coeffs_opt_bw3[0], coeffs_opt_bw3[4])
 
 
-OR_black_opt_bw4 = GetOddsRatio(coeffs_opt_bw4[0], coeffs_opt_bw4[3])
-OR_female_opt_bw4 = GetOddsRatio(coeffs_opt_bw4[0], coeffs_opt_bw4[1])
-OR_age_opt_bw4 = GetOddsRatio(coeffs_opt_bw4[0], coeffs_opt_bw4[2])
-OR_DEC_opt_bw4 = GetOddsRatio(coeffs_opt_bw4[0], coeffs_opt_bw4[4])
-OR_blackXdec_opt_bw4 = GetOddsRatio(coeffs_opt_bw4[0], coeffs_opt_bw4[5])
 
 
 
@@ -887,65 +846,6 @@ OR_blackXdec_opt_bw4 = GetOddsRatio(coeffs_opt_bw4[0], coeffs_opt_bw4[5])
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-N. PRECISION PREDICTIVA DE COMPAS
-"""
-
-"""
-ProPublica estudia la precision predictiva de Compas mediante una
-regresion de Cox.
-
-En el preprocesado de datos resultantes, se omiten agresores cuya fecha de termino
-sea anterior a la de inicio.
-"""
-
-"""
-wataru
-#importar datos
-raw_data_cox = pd.read_csv(r"C:\zUzzzsers\Mauricio\Documents\Tesis\Algo Bias\Arts\Bias\ProPublica COMPAS\compas-analysis-master\compas-analysis-master\cox-parsed.csv")
-cats_cox = raw_data_cox.columns
-
-#Preprocesado
-data_valid_date_cox = raw_data_cox.loc[(raw_data_cox['end'] > raw_data_cox['start'])]
-data_valid_score_cox = data_valid_date_cox.dropna(subset = ['score_text'])
-data_valid_cox = data_valid_score_cox.drop_duplicates(subset = 'id') 
-
-#Conversion de algunos datos en factores categoricos
-data_cox = data_valid_cox.copy()
-
-data_cox['race_factor'] = data_cox['race'].astype('category')
-data_cox['race_factor'] = data_cox['race_factor'].cat.reorder_categories(['Caucasian', 'African-American', 'Asian', 'Hispanic', 'Native American', 'Other'])
-race_factor_cox = pd.get_dummies(data_cox['race_factor'], prefix = ['race_factor'], drop_first = True)
-
-data_cox['score_factor'] = data_cox['score_text'].astype('category')
-data_cox['score_factor'] = data_cox['score_factor'].cat.reorder_categories(['Low', 'High', 'Medium'])
-score_factor_cox = pd.get_dummies(data_cox['score_factor'], prefix = ['score_factor'], drop_first = True)
-
-
-#Observar la distribucion por factores de puntaje y raza
-#Puntaje:
-data_cox.groupby(['score_factor']).size()
-
-#Raza:
-data_cox.groupby(['race_factor']).size()
-"""
 
 
 
