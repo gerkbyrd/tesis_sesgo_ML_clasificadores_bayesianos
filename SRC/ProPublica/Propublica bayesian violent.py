@@ -27,20 +27,15 @@ tf.reset_default_graph()
 tf.compat.v1.random.set_random_seed(1234)
 np.random.seed(1234)
 
-logreg_input_matrix = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_in_bias_v.npy")
-logreg_targets = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_tgt_v.npy"), (4020,1))
-coefs_freq = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq_v.npy")
+logreg_input_matrix = np.load(r"SRC/ProPublica/Arreglos/lgrg_in_bias_v.npy")
+logreg_targets = np.reshape(np.load(r"SRC/ProPublica/Arreglos/lgrg_tgt_v.npy"), (4020,1))
+coefs_freq = np.load(r"SRC/ProPublica/Arreglos/coefs_freq_v.npy")
 
 #para el modelo nulo (AIC, chi cuadrda, etc):
 #logreg_input_matrix = np.ones((logreg_input_matrix.shape[0],1))
 
 
-"""
-logreg_input_matrix = np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_in_mtx_wb.npy")
-logreg_targets = np.reshape(np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_tgt_wb.npy"), (5278,1))
-logreg_targets, logreg_input_matrix = logreg_targets[0:num_examples], logreg_input_matrix[0:num_examples]
-coefs_freq = np.reshape(np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq_wb.npy"), (8,1))
-"""
+
 num_examples = len(logreg_targets)
 
 """
@@ -409,10 +404,10 @@ ax.set_ylabel('p', labelpad = 150, fontsize=14)
 """
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/ProPublica/Figuras/",
                                          "PDF_Violent_mod.png")
 
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/ProPublica/Figuras/",
                                          "PDF_Violent_inc_mod.png")
 
 

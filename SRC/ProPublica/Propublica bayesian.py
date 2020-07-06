@@ -27,19 +27,14 @@ tf.reset_default_graph()
 tf.compat.v1.random.set_random_seed(1234)
 np.random.seed(1234)
 
-logreg_input_matrix = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_in_bias.npy")
-logreg_targets = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_tgt.npy"), (6172,1))
-coefs_freq = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq.npy")
+logreg_input_matrix = np.load(r"SRC/ProPublica/Arreglos/lgrg_in_bias.npy")
+logreg_targets = np.reshape(np.load(r"SRC/ProPublica/Arreglos/lgrg_tgt.npy"), (6172,1))
+
 
 #para el modelo nulo (AIC, chi cuadrda, etc):
 #logreg_input_matrix = np.ones((logreg_input_matrix.shape[0],1))
 
-"""
-logreg_input_matrix = np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_in_mtx_wb.npy")
-logreg_targets = np.reshape(np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_tgt_wb.npy"), (5278,1))
-logreg_targets, logreg_input_matrix = logreg_targets[0:num_examples], logreg_input_matrix[0:num_examples]
-coefs_freq = np.reshape(np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq_wb.npy"), (8,1))
-"""
+
 
 num_examples = len(logreg_targets)
 """
@@ -194,45 +189,7 @@ with tf.compat.v1.Session() as sess:
     
         
     
-    """
-    pred_train_bay = tf.matmul(X_train1, coefs_bay)
-    pred_train_opt = tf.matmul(X_train1, coefs_opt)
-    pred_train_freq = tf.matmul(X_train1, coefs_freq)   
-    pred_val_bay = tf.matmul(X_val, coefs_bay)
-    pred_val_opt = tf.matmul(X_val, coefs_opt)
-    pred_val_freq = tf.matmul(X_val, coefs_freq)
-    pred_tst_bay = tf.matmul(X_test, coefs_bay)
-    pred_tst_opt = tf.matmul(X_test, coefs_opt)
-    pred_tst_freq = tf.matmul(X_test, coefs_freq)
-    
-    log_pred_train_freq = 1/(1 + tf.exp(-pred_train_freq))
-    log_pred_train_bay = 1/(1 + tf.exp(-pred_train_bay))
-    log_pred_train_opt = 1/(1 + tf.exp(-pred_train_opt)) 
-    log_pred_val_freq = 1/(1 + tf.exp(-pred_val_freq))
-    log_pred_val_bay = 1/(1 + tf.exp(-pred_val_bay))
-    log_pred_val_opt = 1/(1 + tf.exp(-pred_val_opt)) 
-    log_pred_tst_freq = 1/(1 + tf.exp(-pred_tst_freq))
-    log_pred_tst_bay = 1/(1 + tf.exp(-pred_tst_bay))
-    log_pred_tst_opt = 1/(1 + tf.exp(-pred_tst_opt)) 
-    
-    sqerr_train_bay = tf.reduce_mean(np.subtract(y_train1, log_pred_train_bay)** 2) 
-    sqerr_train_opt = tf.reduce_mean(np.subtract(y_train1, log_pred_train_opt)** 2) 
-    sqerr_train_freq = tf.reduce_mean(np.subtract(y_train1, log_pred_train_freq)** 2) 
-    sqerr_val_bay = tf.reduce_mean(np.subtract(y_val, log_pred_val_bay) ** 2)
-    sqerr_val_opt = tf.reduce_mean(np.subtract(y_val, log_pred_val_opt) ** 2)
-    sqerr_val_freq = tf.reduce_mean(np.subtract(y_val, log_pred_val_freq) ** 2)
-    sqerr_tst_bay = tf.reduce_mean(np.subtract(y_test, log_pred_tst_bay) ** 2)
-    sqerr_tst_opt = tf.reduce_mean(np.subtract(y_test, log_pred_tst_opt) ** 2)
-    sqerr_tst_freq = tf.reduce_mean(np.subtract(y_test, log_pred_tst_freq) ** 2)
-    
-    var, pvar, mn, pmn, nbww = sess.run((variance, prior_variance, mean, prior_mean, non_bay_ww))
 
-
-  
-    sqetrf, sqetro, sqetrb, sqevf, sqevo, sqevb, sqetf, sqeto, sqetb = sess.run((sqerr_train_freq, sqerr_train_opt, sqerr_train_bay, 
-                                                                                 sqerr_val_freq, sqerr_val_opt, sqerr_val_bay, 
-                                                                                 sqerr_tst_freq, sqerr_tst_opt, sqerr_tst_bay)) 
-    """   
     
 
     
@@ -419,11 +376,11 @@ ax.set_ylabel('p', labelpad = 150, fontsize=14)
 
 ax.legend(loc = 'upper right')
 
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/ProPublica/Figuras/",
                                          "PDF_inc_mod.png")
 
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
 
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/ProPublica/Figuras/",
                                          "PDF_mod.png")

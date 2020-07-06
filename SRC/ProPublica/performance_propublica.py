@@ -25,29 +25,29 @@ tf.reset_default_graph()
 tf.compat.v1.random.set_random_seed(1234)
 np.random.seed(1234)
 
-logreg_input_matrix = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_in_bias.npy")
-logreg_input_matrix_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_in_bias_v.npy")
+logreg_input_matrix = np.load(r"SRC/ProPublica/Arreglos/lgrg_in_bias.npy")
+logreg_input_matrix_v = np.load(r"SRC/ProPublica/Arreglos/lgrg_in_bias_v.npy")
 logreg_input_matrix0 = np.ones((logreg_input_matrix.shape[0],1))
 logreg_input_matrix_v0 = np.ones((logreg_input_matrix_v.shape[0],1))
 
-logreg_targets = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_tgt.npy"), (6172,1))
-logreg_targets_v = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\lgrg_tgt_v.npy"), (4020,1))
+logreg_targets = np.reshape(np.load(r"SRC/ProPublica/Arreglos/lgrg_tgt.npy"), (6172,1))
+logreg_targets_v = np.reshape(np.load(r"SRC/ProPublica/Arreglos/lgrg_tgt_v.npy"), (4020,1))
 
-null = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\null.npy")
-null_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\null_v.npy")
+null = np.load(r"SRC/ProPublica/Arreglos/null.npy")
+null_v = np.load(r"SRC/ProPublica/Arreglos/null_v.npy")
 
-null_bay = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\null_bay.npy")
-null_bay_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\null_v_bay.npy")
+null_bay = np.load(r"SRC/ProPublica/Arreglos/null_bay.npy")
+null_bay_v = np.load(r"SRC/ProPublica/Arreglos/null_v_bay.npy")
 
 
-coefs_freq = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq.npy").reshape((12,1))
-coefs_freq_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq_v.npy").reshape((12,1))
+coefs_freq = np.load(r"SRC/ProPublica/Arreglos/coefs_freq.npy").reshape((12,1))
+coefs_freq_v = np.load(r"SRC/ProPublica/Arreglos/coefs_freq_v.npy").reshape((12,1))
 
-coefs_opt = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\nbww.npy")
-coefs_opt_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\nbww_v.npy")
+coefs_opt = np.load(r"SRC/ProPublica/Arreglos/nbww.npy")
+coefs_opt_v = np.load(r"SRC/ProPublica/Arreglos/nbww_v.npy")
 
-coefs_bay = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\mean_bay.npy")
-coefs_bay_v = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\mean_bay_v.npy")
+coefs_bay = np.load(r"SRC/ProPublica/Arreglos/mean_bay.npy")
+coefs_bay_v = np.load(r"SRC/ProPublica/Arreglos/mean_bay_v.npy")
 
 
 LL0 = logreg_cost_accuracy(logreg_input_matrix0, logreg_targets, null)[0]
