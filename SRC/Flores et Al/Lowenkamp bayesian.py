@@ -27,14 +27,13 @@ tf.reset_default_graph()
 tf.compat.v1.random.set_random_seed(1234)
 np.random.seed(1234)
  
-logreg_input_matrix1 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input1.npy")
-logreg_input_matrix2 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input2.npy")
-logreg_input_matrix3 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input3.npy")
-logreg_input_matrix4 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input4.npy")
+logreg_input_matrix1 = np.load(r"SRC/Flores et Al/Arreglos/input1.npy")
+logreg_input_matrix2 = np.load(r"SRC/Flores et Al/Arreglos/input2.npy")
+logreg_input_matrix3 = np.load(r"SRC/Flores et Al/Arreglos/input3.npy")
+logreg_input_matrix4 = np.load(r"SRC/Flores et Al/Arreglos/input4.npy")
 
-logreg_targets = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\lgrg_trgt_Lowenkamp.npy"), (5278,1)).astype('float32')
-#coefs_freq = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq_wb.npy"), (8,1))
-#coefs_freq = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\coefs1.npy")
+logreg_targets = np.reshape(np.load(r"SRC/Flores et Al/Arreglos/lgrg_trgt_Lowenkamp.npy"), (5278,1)).astype('float32')
+
 num_examples = len(logreg_targets)
 
 logreg_input_matrix = logreg_input_matrix4
@@ -184,8 +183,6 @@ with tf.compat.v1.Session() as sess:
     """-------------------------------
     CÓDIGO PARA EJECUCIONES "EAGER"
     ----------------------------------
-coefs_bay = np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\meanbay_coefsN.npy")
-coefs_opt = np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\opt_coefsN.npy")
 ytp1 = np.array(log_pred_train_bay)
 ytp1l = ytp1 > 0.5
 ytp1l = ytp1l.astype('float32')
@@ -454,7 +451,7 @@ ax.set_ylabel('p', labelpad = 150, fontsize=14)
 """
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "PDF_Lowenkamp_1.png")
 
 
@@ -534,7 +531,7 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig1Bay.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
@@ -563,7 +560,7 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend(loc = 'upper left')
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig1BayMN.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
@@ -627,7 +624,7 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend(loc = 'upper left')
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig1Bay_prior.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
@@ -656,7 +653,7 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend(loc = 'upper left')
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig1BayMN_prior.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))

@@ -25,22 +25,21 @@ tf.reset_default_graph()
 tf.compat.v1.random.set_random_seed(1234)
 np.random.seed(1234)
  
-logreg_input_matrix1 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_v1.npy")
-logreg_input_matrix2 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_v2.npy")
-logreg_input_matrix3 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_v3.npy")
-logreg_input_matrix4 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_v4.npy")
+logreg_input_matrix1 = np.load(r"SRC/Flores et Al/Arreglos/input_v1.npy")
+logreg_input_matrix2 = np.load(r"SRC/Flores et Al/Arreglos/input_v2.npy")
+logreg_input_matrix3 = np.load(r"SRC/Flores et Al/Arreglos/input_v3.npy")
+logreg_input_matrix4 = np.load(r"SRC/Flores et Al/Arreglos/input_v4.npy")
 
-logreg_input_matrix_nf_1 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_vnf1.npy")
-logreg_input_matrix_nf_2 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_vnf2.npy")
-logreg_input_matrix_nf_3 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_vnf3.npy")
-logreg_input_matrix_nf_4 = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\input_vnf4.npy")
+logreg_input_matrix_nf_1 = np.load(r"SRC/Flores et Al/Arreglos/input_vnf1.npy")
+logreg_input_matrix_nf_2 = np.load(r"SRC/Flores et Al/Arreglos/input_vnf2.npy")
+logreg_input_matrix_nf_3 = np.load(r"SRC/Flores et Al/Arreglos/input_vnf3.npy")
+logreg_input_matrix_nf_4 = np.load(r"SRC/Flores et Al/Arreglos/input_vnf4.npy")
 
-logreg_targets_v = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\lgrg_tgt_Lowenkamp_v.npy"), (len(logreg_input_matrix1),1)).astype('float32')
-logreg_targets_vnf = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\lgrg_tgt_Lowenkamp_vnf.npy"), (len(logreg_input_matrix_nf_1),1)).astype('float32')
+logreg_targets_v = np.reshape(np.load(r"SRC/Flores et Al/Arreglos/lgrg_tgt_Lowenkamp_v.npy"), (len(logreg_input_matrix1),1)).astype('float32')
+logreg_targets_vnf = np.reshape(np.load(r"SRC/Flores et Al/Arreglos/lgrg_tgt_Lowenkamp_vnf.npy"), (len(logreg_input_matrix_nf_1),1)).astype('float32')
 
 logreg_targets = logreg_targets_v
-#coefs_freq = np.reshape(np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\coefs_freq_wb.npy"), (8,1))
-#coefs_freq = np.load(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\coefs1_vnf.npy")
+
 num_examples = len(logreg_targets)
 
 logreg_input_matrix = logreg_input_matrix1
@@ -196,8 +195,6 @@ with tf.compat.v1.Session() as sess:
     """-------------------------------
     CÓDIGO PARA EJECUCIONES "EAGER"
     ----------------------------------
-coefs_bay = np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\meanbay_coefsN.npy")
-coefs_opt = np.load(r"C:\-Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob\Lowenkamp arrays\opt_coefsN.npy")
 ytp1 = np.array(log_pred_train_bay)
 ytp1l = ytp1 > 0.5
 ytp1l = ytp1l.astype('float32')
@@ -466,7 +463,7 @@ ax.set_ylabel('p', labelpad = 150, fontsize=14)
 """
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "PDF_Lowenkamp_4_vnf.png")
 
 
@@ -545,7 +542,7 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend()
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig2Bay_nf.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
@@ -574,7 +571,7 @@ ax.xaxis.grid(b=True)
 ax.yaxis.grid(b=True)
 
 ax.legend(loc = 'upper left')
-fname=os.path.join(r"C:\Users\Mauricio\Documents\Tesis\Algo Bias\Code\Tutoriales TF prob",
+fname=os.path.join(r"SRC/Flores et Al/Figuras/",
                                          "FloresFig2BayMN_nf1.png")
 canvas.print_figure(fname, format="png")
 print("saved {}".format(fname))
